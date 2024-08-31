@@ -3,7 +3,7 @@ const express=require('express');
 const routes=express.Router();
 
 routes.post('/register',( req, res)=>{
-    res.send('success')
+    res.send('registration success')
 });
 
 routes.post('/login',(req, res)=>{
