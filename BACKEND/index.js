@@ -5,6 +5,8 @@ require ('dotenv').config();//it will be used to access .env file through out th
 require ('./config/db');
 const PORT= process.env.PORT || 3000;
 
+
+app.use(bodyParser.json());//it is most important as without it we cannot accept data in the server body
 app.use('/api/v1', routes);
 
 app.listen(PORT,()=>{
