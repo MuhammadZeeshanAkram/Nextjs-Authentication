@@ -1,5 +1,5 @@
 const express=require('express');
-const { registerUser, loginUser } = require('../userController');
+const { registerUser, loginUser, getUsers } = require('../userController');
 const { userRegisterValidate, userLoginValidate } = require('../utils/userValidation');
 const routes=express.Router();
 
@@ -17,6 +17,10 @@ routes.post('/register',userRegisterValidate,registerUser);
      //create jwt token
      //sent response to client
 routes.post('/login',userLoginValidate,loginUser);
+
+
+
+routes.get('/users', getUsers);//how to use jwt token
 
 
 module.exports=routes;

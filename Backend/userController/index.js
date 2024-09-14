@@ -43,7 +43,14 @@ module.exports={
         }catch(err){
             return res.status(500).json({message:"error",error:err});
         }
+    },
+    
+    getUsers:async(req,res)=>{
+        
     }
+
+
+
 
 }
 
