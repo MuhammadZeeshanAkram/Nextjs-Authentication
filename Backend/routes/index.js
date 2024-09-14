@@ -1,6 +1,6 @@
 const express=require('express');
 const { registerUser, loginUser } = require('../userController');
-const { userRegisterValidate } = require('../utils/userValidation');
+const { userRegisterValidate, userLoginValidate } = require('../utils/userValidation');
 const routes=express.Router();
 
     //validate req.body --Done
@@ -10,7 +10,13 @@ const routes=express.Router();
     //return response to client --Done
 routes.post('/register',userRegisterValidate,registerUser);
 
-routes.post('/login',loginUser);
+
+
+     //check user using email
+     //compare password
+     //create jwt token
+     //sent response to client
+routes.post('/login',userLoginValidate,loginUser);
 
 
 module.exports=routes;
