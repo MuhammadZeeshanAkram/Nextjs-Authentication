@@ -1,6 +1,7 @@
 const express=require('express');
 const { registerUser, loginUser, getUsers } = require('../userController');
 const { userRegisterValidate, userLoginValidate } = require('../utils/userValidation');
+const { ensureAuthenticated } = require('../utils/auth');
 const routes=express.Router();
 
     //validate req.body --Done
@@ -20,7 +21,7 @@ routes.post('/login',userLoginValidate,loginUser);
 
 
 
-routes.get('/users', getUsers);//how to use jwt token
+routes.get('/users',ensureAuthenticated, getUsers);//how to use jwt token
 
 
 module.exports=routes;
