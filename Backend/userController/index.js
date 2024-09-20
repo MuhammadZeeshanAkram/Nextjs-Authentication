@@ -46,7 +46,12 @@ module.exports={
     },
     
     getUsers:async(req,res)=>{
-        
+        try{
+            const users=await UserModel.find({},{password:0});
+            return res.status(200).json({data:users});  
+        }catch(err){
+            return res.status(500).json({message:"error",error:err});
+        }
     }
 
 
